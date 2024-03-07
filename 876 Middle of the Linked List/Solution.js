@@ -11,6 +11,8 @@
  */
 var middleNode = function(head) {
     //Approach 1. Iterate through this list, find length and return val
+
+    /*
     let newList = head;
     let length = 0;
 
@@ -27,5 +29,17 @@ var middleNode = function(head) {
         }
         head = head.next;
     }
+    */
 
+    //Approach 2
+    //Two pointer approach, slow pointer and fast pointer.
+
+    let slowPointer = head;
+    let fastPointer = head;
+
+    while(fastPointer && fastPointer.next) {
+        slowPointer = slowPointer.next;
+        fastPointer = fastPointer.next.next;
+    }
+    return slowPointer;
 };
